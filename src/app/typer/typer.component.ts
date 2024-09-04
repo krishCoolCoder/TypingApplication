@@ -11,8 +11,6 @@ export class TyperComponent {
   lines: string[] = [];
   currentLineIndex: number = 0;
   inputText: string = '';
-  correctKeyStroke : number = 0; 
-  wrongKeyStroke : number = 0; 
 
   constructor() {
     this.lines = this.text.split(' '); // Split text into words for display
@@ -33,11 +31,6 @@ export class TyperComponent {
   getCharClass(index: number): string {
     if (this.inputText[index] === undefined) {
       return '';
-    }
-    if (this.inputText[index] === this.getDisplayedLine()[index]) {
-      this.currentLineIndex++;
-    } else {
-      this.wrongKeyStroke++;
     }
     return this.inputText[index] === this.getDisplayedLine()[index] ? 'correct' : 'incorrect';
   }
