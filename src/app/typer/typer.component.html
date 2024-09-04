@@ -1,17 +1,15 @@
 <div class="center-container">
-    <div class="typing-container">
+    <div
+      class="typing-container"
+      (keydown)="onKeydown($event)"
+      tabindex="0"
+    >
       <p>
         <span *ngFor="let char of textArray; let i = index" [ngClass]="getCharClass(i)">
           <span *ngIf="isSpace(char)">&nbsp;</span>
           <span *ngIf="!isSpace(char)">{{ char }}</span>
         </span>
       </p>
-      <input
-        type="text"
-        [(ngModel)]="inputText"
-        (ngModelChange)="onInputChange()"
-        placeholder="Start typing..."
-      />
     </div>
   </div>
   

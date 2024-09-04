@@ -1,42 +1,49 @@
 .center-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .typing-container {
-    font-family: monospace;
-    font-size: 24px;
-    width: fit-content;
-    text-align: center;
-    background-color: green;
-    width : 110vh;
-  }
-  
-  .correct {
-    color: green;
+  font-family: monospace;
+  font-size: 18px; /* Adjust font size as needed */
+  width: 110vh;
+  text-align: justify;
+  height: auto;
+  cursor: text;
+  padding: 20px;
+  border: 1px solid transparent;
+  outline: none; /* Remove focus outline */
+  overflow: auto; /* Enable scrolling if the text is too long */
+}
+
+.typing-container:focus {
+  border-color: #007bff;
+}
+
+.correct {
+  color: green;
     background-color: rgba(41, 226, 41, 0.507);
-  }
-  
-  .incorrect {
-    color: red;
-    background-color: rgba(226, 41, 41, 0.507);
-  }
-  
-  input {
-    margin-top: 20px;
-    font-size: 24px;
-    padding: 5px;
-    width: 100%;
-  }
-  
-  span {
-    white-space: pre; /* Preserves whitespace characters */
-  }
-  
-  span.space {
-    border-bottom: 1px dashed gray; /* Optional: Underline for space visualization */
-  }
-  
+}
+
+.incorrect {
+  color: red;
+  background-color: rgba(226, 41, 41, 0.507);
+}
+
+input {
+  margin-top: 20px;
+  font-size: 24px;
+  padding: 5px;
+  width: 100%;
+
+}
+
+span {
+  white-space: pre;
+}
+
+span.space {
+  border-bottom: 1px dashed gray;
+}
