@@ -1,0 +1,33 @@
+.typing-container {
+    font-family: monospace;
+    font-size: 24px;
+    width: fit-content;
+    margin: auto;
+  }
+  
+  .correct {
+    color: green;
+    background-color: rgba(41, 226, 41, 0.507);
+
+  }
+  
+  .incorrect {
+    color: red;
+    background-color: rgba(226, 41, 41, 0.507);
+  }
+  
+  input {
+    margin-top: 20px;
+    font-size: 24px;
+    padding: 5px;
+    width: 100%;
+  }
+  
+  span {
+    white-space: pre; /* Preserves whitespace characters */
+  }
+  
+  span.space {
+    border-bottom: 1px dashed gray; /* Optional: Underline for space visualization */
+  }
+  

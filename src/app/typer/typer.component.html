@@ -1,0 +1,15 @@
+<div class="typing-container">
+    <p>
+      <span *ngFor="let char of textArray; let i = index" [ngClass]="getCharClass(i)">
+        <span *ngIf="isSpace(char)">&nbsp;</span>
+        <span *ngIf="!isSpace(char)">{{ char }}</span>
+      </span>
+    </p>
+    <input
+      type="text"
+      [(ngModel)]="inputText"
+      (ngModelChange)="onInputChange()"
+      placeholder="Start typing..."
+    />
+  </div>
+  
