@@ -1,14 +1,20 @@
-.typing-container {
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .typing-container {
     font-family: monospace;
     font-size: 24px;
     width: fit-content;
-    margin: auto;
+    text-align: center;
   }
   
   .correct {
     color: green;
     background-color: rgba(41, 226, 41, 0.507);
-
   }
   
   .incorrect {
