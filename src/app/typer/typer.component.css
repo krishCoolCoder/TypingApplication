@@ -3,28 +3,35 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  padding: 20px;
 }
 
 .typing-container {
   font-family: monospace;
   font-size: 18px; /* Adjust font size as needed */
-  width: 110vh;
-  text-align: justify;
-  height: auto;
-  cursor: text;
+  width: 100%;
+  max-width: 800px; /* Limit the width for readability */
   padding: 20px;
   border: 1px solid transparent;
   outline: none; /* Remove focus outline */
-  overflow: auto; /* Enable scrolling if the text is too long */
+  overflow: hidden; /* Enable scrolling if needed */
+  background-color: rgba(42, 209, 42, 0.322);
+  display: flex;
+  justify-content: center;
 }
 
 .typing-container:focus {
   border-color: #007bff;
 }
 
+.justified-text {
+  text-align: justify; /* Justify the text */
+  text-justify: inter-word; /* Adjust spacing between words */
+}
+
 .correct {
   color: green;
-    background-color: rgba(41, 226, 41, 0.507);
+  background-color: rgba(41, 226, 41, 0.507);
 }
 
 .incorrect {
@@ -32,18 +39,6 @@
   background-color: rgba(226, 41, 41, 0.507);
 }
 
-input {
-  margin-top: 20px;
-  font-size: 24px;
-  padding: 5px;
-  width: 100%;
-
-}
-
 span {
   white-space: pre;
-}
-
-span.space {
-  border-bottom: 1px dashed gray;
 }
