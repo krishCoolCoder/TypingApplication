@@ -19,10 +19,10 @@
   </div>
 </div>
 <div class="timing">
-  <p>Time : </p>
-  <button (click)="setTyping(10)">10 seconds</button>
-  <button (click)="setTyping(30)">30 seconds</button>
-  <button (click)="setTyping(60)">60 seconds</button>
+  <!-- <p>Time : </p> -->
+  <button  class="dropbtn" [ngClass]="{'active': timingData === 10}" (click)="setTyping(10)">10 seconds</button>
+  <button  class="dropbtn" [ngClass]="{'active': timingData === 30}" (click)="setTyping(30)">30 seconds</button>
+  <button  class="dropbtn" [ngClass]="{'active': timingData === 60}" (click)="setTyping(60)">60 seconds</button>
 </div>
 <div class="popupContainer"*ngIf="showPopUp" (click)="closePopup()">
   <div class="wpmContainer">

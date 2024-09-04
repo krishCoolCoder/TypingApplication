@@ -30,31 +30,7 @@ export class TyperComponent {
     this.lines = this.text.split(' '); // Split text into words for display
   }
   ngOnInit (){
-//     setTimeout(()=>{
-//       const inputCharacters = this.allKeystrokes.map(item => item.keyValue).join('');
-//       let correctCount = 0;
-// let incorrectCount = 0;
-
-// // Compare characters
-// for (let i = 0; i < inputCharacters.length; i++) {
-//     if (inputCharacters[i] === this.text[i]) {
-//         correctCount++;
-//     } else {
-//         incorrectCount++;
-//     }
-// }
-// // calculating the Gross wpm : 
-// let grossWpm = this.totalKeystroke/ 5;
-// let netWpm = correctCount / 5;
-// let accuracy = (netWpm * 100) / grossWpm;
-// this.grossWPM = grossWpm;
-// this.netWPM = netWpm;
-// this.accuracy = accuracy;
-// this.showPopUp = true;
-
-//       // alert("Times up. \n Gross WPM : "+ grossWpm + " \n Net WPM : "+netWpm+" \n Accuracy : "+accuracy)
-//       // console.log("Times up. TotalKeystroke : "+ this.totalKeystroke + " Correct keystroke : " + correctCount + " Wrong keystroke : "+ (this.wrongKeystroke + incorrectCount)  +" and the Gross WPM is this : " + grossWpm, " and the netWpm is this : ", netWpm, " and the accuracy is this : ", accuracy )
-//     }, 10000)
+    this.timingData = 30;
   }
 
   getDisplayedLine(): string[] {
@@ -88,6 +64,7 @@ export class TyperComponent {
       this.totalKeystroke++;
       if ( this.typingStarted == false ) {
         this.startTimer(this.timingData);
+        this.typingStarted = true;
       }
     }
     if (key === 'Backspace') {
