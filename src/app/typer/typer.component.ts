@@ -11,6 +11,8 @@ export class TyperComponent {
   lines: string[] = [];
   currentLineIndex: number = 0;
   inputText: string = '';
+  correctKeyStroke : number = 0; 
+  wrongKeyStroke : number = 0; 
 
   constructor() {
     this.lines = this.text.split(' '); // Split text into words for display
@@ -22,9 +24,20 @@ export class TyperComponent {
     return currentLine.join(' ').split(''); // Convert line into array of characters
   }
 
+  getNextLine(): string[] {
+    // Display the next set of 10 words for preview
+    const nextLine = this.lines.slice(this.currentLineIndex + 10, this.currentLineIndex + 20);
+    return nextLine.join(' ').split(''); // Convert line into array of characters
+  }
+
   getCharClass(index: number): string {
     if (this.inputText[index] === undefined) {
       return '';
+    }
+    if (this.inputText[index] === this.getDisplayedLine()[index]) {
+      this.currentLineIndex++;
+    } else {
+      this.wrongKeyStroke++;
     }
     return this.inputText[index] === this.getDisplayedLine()[index] ? 'correct' : 'incorrect';
   }

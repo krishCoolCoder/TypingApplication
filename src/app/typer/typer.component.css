@@ -17,7 +17,7 @@
   overflow: hidden; /* Enable scrolling if needed */
   background-color: rgba(42, 209, 42, 0.322);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 }
 
 .typing-container:focus {
@@ -41,4 +41,18 @@
 
 span {
   white-space: pre;
+}
+
+.current-line {
+  margin-bottom: 1px; /* Space between current line and preview */
+  height : 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.preview-line {
+  color: gray; /* Optional: different color for the preview line */
+  /* height : 30px; */
+  display: flex;
+  justify-content: center;
 }
