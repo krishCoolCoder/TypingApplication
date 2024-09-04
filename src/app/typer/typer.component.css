@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 90vh;
   padding: 20px;
 }
 
@@ -18,6 +18,8 @@
   background-color: rgba(42, 209, 42, 0.322);
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .typing-container:focus {
@@ -55,4 +57,58 @@ span {
   /* height : 30px; */
   display: flex;
   justify-content: center;
+}
+
+.popupContainer {
+  height: 400px;
+  width : 400px;
+  background-color : rgb(115 255 96);
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  font-family: monospace;
+  border-radius: 30px;  
+}
+.popupContainer h2 {
+  /* height: 20px; */
+  /* margin-bottom: 1px; */
+}
+.wpmContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* height: 50px; */
+  /* background-color: red; */
+  margin-top: 10px;
+
+}
+
+button {
+  height: 30px;
+  border: none;
+}
+
+.timing {
+  position:absolute;
+  right: 0px;
+  bottom: 0px;
+  margin-bottom: 30px;
+  margin-right: 40px;
+   display: flex;
+}
+.timing button {
+  margin-left: 30px;
+}
+.timing p {
+  /* padding-bottom: 10px; */
+  margin: 5px;
 }

@@ -18,3 +18,31 @@
     </div>
   </div>
 </div>
+<div class="timing">
+  <p>Time : </p>
+  <button (click)="setTyping(10)">10 seconds</button>
+  <button (click)="setTyping(30)">30 seconds</button>
+  <button (click)="setTyping(60)">60 seconds</button>
+</div>
+<div class="popupContainer"*ngIf="showPopUp" (click)="closePopup()">
+  <div class="wpmContainer">
+    <h2>WPM {{netWPM}}</h2>
+  </div>
+  <div class="otherWpmDetails">
+    <h4>Gross WPM : {{grossWPM}}</h4>
+    <h4>Accuracy : {{accuracy}} %</h4>
+  </div>
+  <button (click)="resetTyping()">Close</button>
+</div>
+
+<!-- <div class="footer"> -->
+
+  <!-- <div class="dropup">
+    <button class="dropbtn">Select Data Type</button>
+    <div class="dropup-content">
+      <button (click)="setDataType('words')">Words</button>
+      <button (click)="setDataType('numbers')">Numbers</button>
+      <button (click)="setDataType('sentences')">Sentences</button>
+    </div>
+  </div> -->
+<!-- </div> -->
