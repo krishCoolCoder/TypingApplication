@@ -3,13 +3,16 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-  }
-  
-  .typing-container {
+    background-color: red;
+}
+
+.typing-container {
     font-family: monospace;
     font-size: 24px;
     width: fit-content;
     text-align: center;
+    background-color: green;
+    width : 110vh;
   }
   
   .correct {
