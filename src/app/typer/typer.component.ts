@@ -7,13 +7,43 @@ import { Component, HostListener} from '@angular/core';
 })
 export class TyperComponent {
   // text: string = 'Hello world!';
-  text: string = `apple banana orange grape lemon lime peach pear mango cherry plum apricot kiwi melon berry fig date papaya pomegranate coconut watermelon strawberry blueberry raspberry blackberry toast bread butter cheese milk cream coffee tea juice soda water soup salad rice pasta noodles burger pizza taco steak chicken fish egg bacon ham sausage hotdog sandwich cookie cake pie donut muffin candy chocolate ice cream yogurt cereal oats pancake waffle syrup honey jam jelly nut almond walnut cashew pecan sesame poppy sugar salt pepper garlic onion ginger basil thyme mint parsley rosemary dill chili curry sauce ketchup mustard mayo vinegar olive canola sunflower butter margarine tart brownie cupcake parfait fruit vegetable meat poultry seafood crab lobster scallop mussel shrimp clams oysters tuna trout salmon cod haddock snapper mackerel sardine anchovy anchovy herring squid octopus eel mussel oyster clam crawfish lobster crab shrimp fish anchovy mackerel trout salmon tuna cod haddock snapper sardine clam mussel squid octopus eel eel anchovy squid octopus mussel clam oyster shrimp lobster crab`;
+  // text: string = `the and is in on at by with for from to of a an as be do have it if he she they we you I me him her them us our your my mine this that these those what which who whom where when why`;
+  text: string = `the and is in on`;
+  // text: string = `The quick brown fox jumped over the lazy dogs.`;
   lines: string[] = [];
   currentLineIndex: number = 0;
   inputText: string = '';
+  totalKeystroke : number = 0;
+  allKeystrokes : any[]= [];
+  correctKeystroke : number = 0;
+  wrongKeystroke : number = 0;
+  index : any = 0;
 
   constructor() {
     this.lines = this.text.split(' '); // Split text into words for display
+  }
+  ngOnInit (){
+    setTimeout(()=>{
+      const inputCharacters = this.allKeystrokes.map(item => item.keyValue).join('');
+      let correctCount = 0;
+let incorrectCount = 0;
+
+// Compare characters
+for (let i = 0; i < inputCharacters.length; i++) {
+    if (inputCharacters[i] === this.text[i]) {
+        correctCount++;
+    } else {
+        incorrectCount++;
+    }
+}
+// calculating the Gross wpm : 
+let grossWpm = this.totalKeystroke/ 5;
+let netWpm = correctCount / 5;
+let accuracy = (netWpm * 100) / grossWpm;
+
+      alert("Times up. \n Gross WPM : "+ grossWpm + " \n Net WPM : "+netWpm+" \n Accuracy : "+accuracy)
+      console.log("Times up. TotalKeystroke : "+ this.totalKeystroke + " Correct keystroke : " + correctCount + " Wrong keystroke : "+ (this.wrongKeystroke + incorrectCount)  +" and the Gross WPM is this : " + grossWpm, " and the netWpm is this : ", netWpm, " and the accuracy is this : ", accuracy )
+    }, 10000)
   }
 
   getDisplayedLine(): string[] {
@@ -32,21 +62,43 @@ export class TyperComponent {
     if (this.inputText[index] === undefined) {
       return '';
     }
+    // console.log("The index in getCharClass is this : ", index)
+      this.index = index;
     return this.inputText[index] === this.getDisplayedLine()[index] ? 'correct' : 'incorrect';
   }
+  // getIndex(index:any) {
+  //   console.log("The index is this : ", index)
+  // }
 
   @HostListener('document:keydown', ['$event'])
   onKeydown(event: KeyboardEvent) {
     const key = event.key;
-
+    if ( /^[a-zA-Z0-9 ]$/.test(key) ) {
+      this.totalKeystroke++;
+    }
+    // console.log("The key is this ", key, " and the total keystroke is this ", this.totalKeystroke, " and the wrong keyStroke is this : ", this.wrongKeystroke , " and the index is this : ", this.totalKeystroke -1)
     if (key === 'Backspace') {
+      // this.wrongKeystroke++;
+      this.allKeystrokes.pop()
+      this.totalKeystroke--;
       this.inputText = this.inputText.slice(0, -1);
     } else if (key.length === 1) { // Only process printable characters
+      if ( /^[a-zA-Z0-9 ]$/.test(key) ) {
+        this.allKeystrokes.push(
+          {
+            index : this.totalKeystroke-1,
+            keyValue : key
+          }
+        )
+      }
       this.inputText += key;
     }
-
+    // console.log("The allKeystroke is this : ", this.allKeystrokes)
+    // this.inputText[index] === this.getDisplayedLine()[index] ? 'correct' : 'incorrect'
+    let inputText = this.inputText.length;
+    let displayedLine = this.getDisplayedLine();
     // Move to the next line if inputText matches or exceeds the length of the displayed line
-    if (this.inputText.length >= this.getDisplayedLine().length) {
+    if (inputText >= displayedLine.length) {
       this.currentLineIndex += 10; // Move to the next set of text
       this.inputText = '';
     }
