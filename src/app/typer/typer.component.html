@@ -26,10 +26,10 @@
 </div>
 <div class="popupContainer"*ngIf="showPopUp" (click)="closePopup()">
   <div class="wpmContainer">
-    <h2>WPM {{netWPM}}</h2>
+    <h2>WPM {{grossWPM}}</h2>
   </div>
   <div class="otherWpmDetails">
-    <h4>Gross WPM : {{grossWPM}}</h4>
+    <h4>Net WPM : {{netWPM}}</h4>
     <h4>Accuracy : {{accuracy}} %</h4>
   </div>
   <button (click)="resetTyping()">Close</button>
