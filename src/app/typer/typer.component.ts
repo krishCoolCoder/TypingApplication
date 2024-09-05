@@ -30,10 +30,25 @@ export class TyperComponent {
   timingData : any= 1;
 
   constructor(private location: Location) {
-    this.lines = this.text.split(' '); // Split text into words for display
   }
   ngOnInit (){
     this.timingData = 60;
+    this.text = this.randomizeString(this.text);
+    this.lines = this.text.split(' '); // Split text into words for display
+  }
+
+  randomizeString(text: string) {
+    // Split the string into an array of words
+    const wordsArray = text.split(' ');
+    
+    // Function to shuffle the array using the Fisher-Yates algorithm
+    for (let i = wordsArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [wordsArray[i], wordsArray[j]] = [wordsArray[j], wordsArray[i]]; // Swap elements
+    }
+  
+    // Join the shuffled array back into a single string
+    return wordsArray.join(' ');
   }
 
   getDisplayedLine(): string[] {
