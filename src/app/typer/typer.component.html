@@ -3,7 +3,7 @@
     <div class="current-line">
       <p class="justified-text">
         <span *ngFor="let char of getDisplayedLine(); let i = index" [ngClass]="getCharClass(i)">
-          <span *ngIf="isSpace(char)">&nbsp;</span>
+          <span *ngIf="isSpace(char)">&nbsp;&nbsp;</span>
           <span *ngIf="!isSpace(char)">{{ char }}</span>
         </span>
       </p>

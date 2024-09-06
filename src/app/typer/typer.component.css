@@ -7,8 +7,8 @@
 }
 
 .typing-container {
-  font-family: monospace;
-  font-size: 18px; /* Adjust font size as needed */
+  font-family:  "Noto Sans", sans-serif;
+  font-size: 20px; /* Adjust font size as needed */
   width: 100%;
   max-width: 800px; /* Limit the width for readability */
   padding: 20px;
@@ -124,6 +124,7 @@ button {
 
 .dropbtn.active {
   background-color: #92ffab; /* Change to green when active */
+  font-family: "Noto Sans", sans-serif;
 }
 
 .dropup-content button.active:hover {
