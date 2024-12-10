@@ -29,12 +29,24 @@ export class TyperComponent {
   typingStarted : boolean = false;
   timingData : any= 1;
 
+  countdown: number = 60; // Initial countdown value
+
   constructor(private location: Location) {
   }
   ngOnInit (){
     this.timingData = 60;
     this.text = this.randomizeString(this.text);
     this.lines = this.text.split(' '); // Split text into words for display
+    // this.startCountdown();
+  }
+
+  startCountdown(): void {
+    const timer = setInterval(() => {
+      this.countdown -= 1;
+      if (this.countdown <= 0) {
+        clearInterval(timer); // Stop the countdown
+      }
+    }, 1000); // Decrease the countdown every 1000 ms (1 second)
   }
 
   randomizeString(text: string) {
@@ -122,6 +134,7 @@ export class TyperComponent {
   }
 
   startTimer(time: any) : void {
+    this.startCountdown();
     setTimeout(()=>{
       let inputCharacters = this.allKeystrokes.map(item => item.keyValue).join('');
       console.log("The inputCharacter is this : ", inputCharacters, " and all key strokes is this : ", this.allKeystrokes)
@@ -181,6 +194,7 @@ this.allKeystrokes = [];
   setTyping (input: any) {
     // this.resetTyping();
     this.timingData = input;
+    this.countdown = input;
 
     // this.currentLineIndex = 0;
     // this.inputText = '';

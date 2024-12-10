@@ -130,3 +130,8 @@ button {
 .dropup-content button.active:hover {
   /* background-color: #218838; */
 }
+
+.countdown-container {
+  padding-top:10px;
+  color : rgba(57, 57, 57, 0.836)
+}
